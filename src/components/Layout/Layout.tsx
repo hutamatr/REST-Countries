@@ -4,10 +4,10 @@ import Navigation from '../Navigation/Navigation';
 const Layout = () => {
   return (
     <>
-      <header className="mb-6 shadow-md">
+      <header className="fixed top-0 w-full bg-white shadow-material dark:bg-dark-blue">
         <Navigation />
       </header>
-      <main className="container mx-auto px-5">
+      <main className="min-h-screen dark:bg-very-dark-blue-1">
         <Outlet />
       </main>
     </>
