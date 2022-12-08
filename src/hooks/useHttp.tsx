@@ -1,9 +1,16 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
+
+export interface Country {
+  name: { common: string };
+  population: number;
+  region: string;
+  flags: { png: string; svg: string };
+  capital: string[];
+}
 
 interface RequestConf {
   method: string;
   url: string;
-  data?: Object;
 }
 
 const countriesAPI = axios.create({
@@ -12,11 +19,10 @@ const countriesAPI = axios.create({
 
 const useHttp = () => {
   const requestHttp = async (requestConf: RequestConf) => {
-    const { method, url, data } = requestConf;
-    const response = await countriesAPI({
+    const { method, url } = requestConf;
+    const response: AxiosResponse<Country[]> = await countriesAPI({
       method,
       url,
-      data,
     });
 
     if (response.status > 400) {
