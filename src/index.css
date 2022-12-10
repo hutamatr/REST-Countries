@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   font-family: 'Nunito Sans', Avenir, Helvetica, Arial, sans-serif;
   font-synthesis: none;
@@ -7,6 +11,22 @@
   -webkit-text-size-adjust: 100%;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+::-webkit-scrollbar {
+  width: 0.65rem;
+}
+
+::-webkit-scrollbar:hover {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 1rem;
+  background: #E6E1DC;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(207, 26%, 17%);
+  border-radius: 1rem;
+  border: 3px solid #E6E1DC;
+}
