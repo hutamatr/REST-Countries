@@ -1,4 +1,6 @@
-import { AxiosResponse, AxiosError } from 'axios';
+import { Link, useParams } from 'react-router-dom';
+import { AxiosError } from 'axios';
+
 import { Country } from '../../hooks/useHttp';
 import Card from '../UI/Card';
 
@@ -26,14 +28,15 @@ const CountryLists = ({
         );
 
         return (
-          <Card
-            countryImage={country.flags.png}
-            country={country.name.common}
-            population={populationFormat}
-            region={country.region}
-            capital={country.capital}
-            key={index}
-          />
+          <Link to={`/${country.name.common}`} key={index}>
+            <Card
+              countryImage={country.flags.png}
+              country={country.name.common}
+              population={populationFormat}
+              region={country.region}
+              capital={country.capital}
+            />
+          </Link>
         );
       })}
     </div>

@@ -34,7 +34,6 @@ const Home = () => {
     onSuccess: (data) => {
       setCountriesData(data.data);
     },
-    refetchOnMount: false,
     refetchOnWindowFocus: false,
   });
 
