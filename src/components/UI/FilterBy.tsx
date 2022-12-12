@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-
 interface Props {
   onFilterValue: string;
   onFilterHandler: (event: React.ChangeEvent<HTMLSelectElement>) => void;
@@ -22,7 +20,7 @@ const FilterBy = ({ onFilterValue, onFilterHandler }: Props) => {
         id="region"
         onChange={onFilterHandler}
         value={onFilterValue}
-        className="cursor-pointer rounded py-2 px-4 text-sm font-semibold dark:bg-dark-blue dark:text-white"
+        className="cursor-pointer rounded bg-white py-2 px-4 text-sm font-semibold dark:bg-dark-blue dark:text-white"
       >
         {options.map((option) => (
           <option
