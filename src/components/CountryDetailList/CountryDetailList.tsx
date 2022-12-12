@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Country } from '../../hooks/useHttp';
 
 import { populationFormat } from '../../utils/populationFormat';
@@ -70,18 +71,17 @@ const CountryDetailList = ({ country, borderQueries }: Props) => {
         <div className="flex flex-col items-start gap-y-4 sm:flex-row sm:gap-x-4">
           <p className="whitespace-nowrap font-semibold">Border Countries : </p>
           {borderQueries.length === 0 && <span>-</span>}
-          <ul className="flex flex-row flex-wrap gap-x-2 gap-y-2">
+          <div className="flex flex-row flex-wrap gap-x-2 gap-y-2">
             {borderQueries.map((border, index) => {
               return (
-                <li
-                  key={index}
-                  className="whitespace-nowrap rounded py-1 px-3 text-sm font-medium shadow-material dark:bg-dark-blue"
-                >
-                  {border?.name.common}
-                </li>
+                <Link to={`/${border?.name.common}`} key={index}>
+                  <button className="whitespace-nowrap rounded py-1 px-3 text-sm font-medium shadow-material dark:bg-dark-blue">
+                    {border?.name.common}
+                  </button>
+                </Link>
               );
             })}
-          </ul>
+          </div>
         </div>
       </div>
     </div>
