@@ -1,11 +1,42 @@
 import axios, { AxiosResponse } from 'axios';
 
+interface NativeName {
+  [name: string]: {
+    official: string;
+    common: string;
+  };
+}
+interface Flags {
+  png: string;
+  svg: string;
+}
+interface CountryName {
+  common: string;
+  nativeName?: NativeName;
+}
+
+interface Currencies {
+  [currency: string]: {
+    name: string;
+    symbol: string;
+  };
+}
+
+interface Languages {
+  [name: string]: string;
+}
+
 export interface Country {
-  name: { common: string };
+  name: CountryName;
   population: number;
   region: string;
-  flags: { png: string; svg: string };
+  subregion?: string;
+  flags: Flags;
   capital: string[];
+  tld?: string[];
+  currencies?: Currencies;
+  languages?: Languages;
+  borders?: string[];
 }
 
 interface RequestConf {

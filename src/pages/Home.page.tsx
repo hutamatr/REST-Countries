@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { Helmet } from 'react-helmet';
 
 import useHttp, { Country } from '../hooks/useHttp';
 import SearchBar from '../components/UI/SearchBar';
@@ -83,30 +84,36 @@ const Home = () => {
   };
 
   return (
-    <section className="mx-auto flex max-w-6xl flex-col gap-y-12 px-6 pt-28">
-      <div className="flex w-full flex-col gap-y-6 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex flex-row items-center gap-x-4">
-          {isButtonShow && (
-            <button onClick={backButtonHandler}>
-              <MdArrowBack className="text-2xl dark:text-white" />
-            </button>
-          )}
-          <SearchBar onSearchValue={searchValueHandler} />
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>REST Countries</title>
+      </Helmet>
+      <section className="mx-auto flex max-w-6xl flex-col gap-y-12 px-6 pt-28">
+        <div className="flex w-full flex-col gap-y-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-row items-center gap-x-4">
+            {isButtonShow && (
+              <button onClick={backButtonHandler}>
+                <MdArrowBack className="text-2xl dark:text-white" />
+              </button>
+            )}
+            <SearchBar onSearchValue={searchValueHandler} />
+          </div>
+          <FilterBy
+            onFilterHandler={filterChangeHandler}
+            onFilterValue={filterValue}
+          />
         </div>
-        <FilterBy
-          onFilterHandler={filterChangeHandler}
-          onFilterValue={filterValue}
+        <Pagination
+          data={countriesData}
+          dataLimit={20}
+          pageLimit={4}
+          isLoading={isLoadingCountries || isFetchingSearch || isFetchingFilter}
+          isError={isErrorCountries || isErrorSearch || isErrorFilter}
+          error={errorCountries || errorSearch || errorFilter}
         />
-      </div>
-      <Pagination
-        data={countriesData}
-        dataLimit={20}
-        pageLimit={4}
-        isLoading={isLoadingCountries || isFetchingSearch || isFetchingFilter}
-        isError={isErrorCountries || isErrorSearch || isErrorFilter}
-        error={errorCountries || errorSearch || errorFilter}
-      />
-    </section>
+      </section>
+    </>
   );
 };
 

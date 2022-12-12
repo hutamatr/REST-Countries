@@ -1,8 +1,9 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AxiosError } from 'axios';
 
 import { Country } from '../../hooks/useHttp';
 import Card from '../UI/Card';
+import { populationFormat } from '../../utils/populationFormat';
 
 export interface State {
   isLoading: boolean;
@@ -21,18 +22,14 @@ const CountryLists = ({
   error,
 }: Props) => {
   const countryContent = (
-    <div className="grid grid-flow-row grid-cols-1 items-center justify-items-center gap-6 sm:grid-cols-2 sm:gap-8 md:grid-cols-3 lg:grid-cols-4 lg:gap-12">
+    <div className="grid grid-cols-1 items-center justify-items-center gap-6 sm:grid-cols-2 sm:gap-8 md:grid-cols-3 lg:grid-cols-4 lg:gap-12">
       {onPaginationData()?.map((country, index) => {
-        const populationFormat = new Intl.NumberFormat().format(
-          country.population
-        );
-
         return (
           <Link to={`/${country.name.common}`} key={index}>
             <Card
               countryImage={country.flags.png}
               country={country.name.common}
-              population={populationFormat}
+              population={populationFormat(country.population)}
               region={country.region}
               capital={country.capital}
             />
