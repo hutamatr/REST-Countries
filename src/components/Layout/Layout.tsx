@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Navigation from '../Navigation/Navigation';
+import Footer from '../Footer/Footer';
 import ScrollTop from '../UI/ScrollTop';
 
 const Layout = () => {
@@ -11,6 +12,7 @@ const Layout = () => {
       <main className="min-h-screen dark:bg-very-dark-blue-1">
         <Outlet />
       </main>
+      <Footer />
       <ScrollTop />
     </>
   );
