@@ -19,8 +19,6 @@ This is a solution to the [REST Countries API with color theme switcher challeng
 
 Users should be able to:
 
-Users should be able to:
-
 - See all countries from the API on the homepage
 - Search for a country using an `input` field
 - Filter countries by region
@@ -36,8 +34,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution]()
-- Live Site URL: [Demo]()
+- Solution URL: [Solution](https://www.frontendmentor.io/solutions/rest-countries-api-with-color-theme-switcher-I4QSXorsYd)
+- Live Site URL: [Demo](https://rest-countries-pink.vercel.app/)
 
 ## My process
 
@@ -47,7 +45,7 @@ Users should be able to:
 - [Typescript](https://www.typescriptlang.org/)
 - [React Query](https://tanstack.com/query/v4)
 - [React Router](https://reactrouter.com/en/main)
-- [React Helmet](https://www.npmjs.com/package/react-helmet)
+- [React Helmet Async](https://www.npmjs.com/package/react-helmet-async)
 - [TailwindCSS](https://tailwindcss.com/)
 - [Axios](https://axios-http.com/)
 - [Vite](https://vitejs.dev/)
