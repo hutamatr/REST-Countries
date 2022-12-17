@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { Helmet } from 'react-helmet';
-
+import { Helmet } from 'react-helmet-async';
 import useHttp, { Country } from '../hooks/useHttp';
 import SearchBar from '../components/UI/SearchBar';
 import FilterBy from '../components/UI/FilterBy';
@@ -13,7 +12,9 @@ const Home = () => {
   const [searchValue, setSearchValue] = useState<string | null>(null);
   const [isButtonShow, setIsButtonShow] = useState<boolean>(false);
   const [filterValue, setFilterValue] = useState<string>('');
-  const [countriesData, setCountriesData] = useState<Country[]>([]);
+  const [countriesData, setCountriesData] = useState<Country[]>(
+    [] as Country[]
+  );
   const { requestHttp } = useHttp();
 
   useEffect(() => {
@@ -79,7 +80,7 @@ const Home = () => {
   const backButtonHandler = () => {
     refetch();
     setIsButtonShow(false);
-    setSearchValue('');
+    setSearchValue(null);
     setFilterValue('');
   };
 

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useQuery, useQueries } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { AxiosError } from 'axios';
 
 import BackButton from '../components/UI/BackButton';
@@ -31,7 +31,7 @@ const CountryDetail = () => {
         setQueriesData(data.data[0].borders);
       }
     },
-    refetchOnWindowFocus: false,
+    enabled: !!countryId,
   });
 
   const useQueriesBorder = useQueries({
