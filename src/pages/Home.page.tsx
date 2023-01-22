@@ -87,15 +87,15 @@ const Home = () => {
   return (
     <>
       <Helmet>
-        <meta charSet="utf-8" />
+        <meta charSet='utf-8' />
         <title>REST Countries</title>
       </Helmet>
-      <section className="mx-auto flex max-w-6xl flex-col gap-y-12 px-6 pt-28">
-        <div className="flex w-full flex-col gap-y-6 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-row items-center gap-x-4">
+      <section className='mx-auto flex max-w-6xl flex-col gap-y-12 px-6 pt-28'>
+        <div className='flex w-full flex-col gap-y-6 sm:flex-row sm:items-center sm:justify-between'>
+          <div className='flex flex-row items-center gap-x-4'>
             {isButtonShow && (
               <button onClick={backButtonHandler}>
-                <MdArrowBack className="text-2xl dark:text-white" />
+                <MdArrowBack className='text-2xl dark:text-white' />
               </button>
             )}
             <SearchBar onSearchValue={searchValueHandler} />

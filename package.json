@@ -6,7 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix && yarn format",
+    "lint:strict": "eslint --max-warnings=0 .",
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc.json",
+    "format:check": "prettier -c './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc.json"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.19.0",
@@ -22,8 +27,15 @@
   "devDependencies": {
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
+    "@typescript-eslint/eslint-plugin": "^5.48.2",
+    "@typescript-eslint/parser": "^5.48.2",
     "@vitejs/plugin-react": "^2.2.0",
     "autoprefixer": "^10.4.13",
+    "eslint": "^8.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.1",
+    "eslint-plugin-unused-imports": "^2.0.0",
     "postcss": "^8.4.19",
     "prettier": "^2.8.0",
     "prettier-plugin-tailwindcss": "^0.2.0",

@@ -14,19 +14,19 @@ const options = [
 
 const FilterBy = ({ onFilterValue, onFilterHandler }: Props) => {
   return (
-    <div className="max-w-fit rounded p-2 shadow-material dark:bg-dark-blue">
+    <div className='max-w-fit rounded p-2 shadow-material dark:bg-dark-blue'>
       <select
-        name="region"
-        id="region"
+        name='region'
+        id='region'
         onChange={onFilterHandler}
         value={onFilterValue}
-        className="cursor-pointer rounded bg-white py-2 px-4 text-sm font-semibold dark:bg-dark-blue dark:text-white"
+        className='cursor-pointer rounded bg-white py-2 px-4 text-sm font-semibold dark:bg-dark-blue dark:text-white'
       >
         {options.map((option) => (
           <option
             key={option.value}
             value={option.value}
-            className="text-sm font-semibold"
+            className='text-sm font-semibold'
           >
             {option.text}
           </option>

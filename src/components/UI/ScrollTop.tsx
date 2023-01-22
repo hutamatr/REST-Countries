@@ -27,7 +27,7 @@ const ScrollTop = () => {
       }`}
       onClick={scrollTopHandler}
     >
-      <MdArrowUpward className="text-xl text-white dark:text-very-dark-blue-2" />
+      <MdArrowUpward className='text-xl text-white dark:text-very-dark-blue-2' />
     </button>
   );
 };

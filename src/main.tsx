@@ -15,7 +15,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       <QueryClientProvider client={queryClient}>
         <BrowserRouter>
           <Routes>
-            <Route path="/*" element={<App />} />
+            <Route path='/*' element={<App />} />
           </Routes>
         </BrowserRouter>
         <ReactQueryDevtools initialIsOpen={false} />
