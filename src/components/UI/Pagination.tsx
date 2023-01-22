@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Country } from '../../hooks/useHttp';
 import { State } from '../CountryLists/CountryLists';
@@ -44,9 +44,9 @@ const Pagination = ({
     setCurrentPage((prevState) => prevState - 1);
   };
 
-  const changePageHandler = (event: any) => {
-    if (event.target.textContent) {
-      const pageNumber = +event.target.textContent;
+  const changePageHandler = (event: React.MouseEvent<HTMLButtonElement>) => {
+    if (event.currentTarget.textContent) {
+      const pageNumber = +event.currentTarget.textContent;
       setCurrentPage(pageNumber);
     }
   };
@@ -58,7 +58,7 @@ const Pagination = ({
   };
 
   const getPaginationGroupHandler = () => {
-    let start = Math.floor((currentPage - 1) / pageLimit) * pageLimit;
+    const start = Math.floor((currentPage - 1) / pageLimit) * pageLimit;
     return new Array(pageLimit).fill(1).map((_, index) => start + index + 1);
   };
 
@@ -72,7 +72,7 @@ const Pagination = ({
       />
 
       {data && data.length > 20 && !isLoading && !isError && (
-        <div className="my-8 flex flex-row items-center justify-center gap-x-1 md:gap-x-4">
+        <div className='my-8 flex flex-row items-center justify-center gap-x-1 md:gap-x-4'>
           <button
             onClick={firstPageHandler}
             className={`rounded-md bg-dark-blue py-1 px-4 font-semibold text-white ${
@@ -87,7 +87,7 @@ const Pagination = ({
               currentPage === 1 ? 'hidden' : ''
             }`}
           >
-            <MdNavigateBefore className="text-xl dark:text-white" />
+            <MdNavigateBefore className='text-xl dark:text-white' />
           </button>
 
           {getPaginationGroupHandler().map((item, index) => (
@@ -112,7 +112,7 @@ const Pagination = ({
               currentPage === 13 ? 'hidden' : ''
             }`}
           >
-            <MdNavigateNext className="text-xl dark:text-white" />
+            <MdNavigateNext className='text-xl dark:text-white' />
           </button>
 
           <button

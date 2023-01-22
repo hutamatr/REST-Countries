@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useQuery, useQueries } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { AxiosError } from 'axios';
 
 import BackButton from '../components/UI/BackButton';
@@ -31,7 +31,7 @@ const CountryDetail = () => {
         setQueriesData(data.data[0].borders);
       }
     },
-    refetchOnWindowFocus: false,
+    enabled: !!countryId,
   });
 
   const useQueriesBorder = useQueries({
@@ -56,20 +56,20 @@ const CountryDetail = () => {
   return (
     <>
       <Helmet>
-        <meta charSet="utf-8" />
+        <meta charSet='utf-8' />
         <title>{countryDetail?.data[0].name.common}</title>
-        <meta name="description" content={countryDetail?.data[0].capital[0]} />
+        <meta name='description' content={countryDetail?.data[0].capital[0]} />
       </Helmet>
-      <section className="mx-auto flex max-w-6xl flex-col gap-y-12 px-6 pb-12 pt-28">
+      <section className='mx-auto flex max-w-6xl flex-col gap-y-12 px-6 pb-12 pt-28'>
         <BackButton />
 
         {isLoadingDetail && (
-          <p className="text-center text-2xl font-semibold text-very-dark-blue-2 dark:text-white">
+          <p className='text-center text-2xl font-semibold text-very-dark-blue-2 dark:text-white'>
             Loading Country...
           </p>
         )}
         {isErrorDetail && errorDetail instanceof AxiosError && (
-          <p className="text-center text-2xl font-semibold text-red-600">
+          <p className='text-center text-2xl font-semibold text-red-600'>
             {errorDetail.response?.statusText}
           </p>
         )}
